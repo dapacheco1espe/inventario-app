@@ -3,6 +3,7 @@ package ec.edu.espe.inventario.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,6 +15,7 @@ import ec.edu.espe.inventario.controller.dto.ActivoRfidRQ;
 import ec.edu.espe.inventario.modelos.ActivoRfid;
 import ec.edu.espe.inventario.service.ActivoRfidService;
 
+@CrossOrigin(origins = "http://localhost:8100",maxAge = 3600, allowCredentials = "true")
 @RestController
 @RequestMapping("/api/v1/activosRfid")
 public class ActivoRfidController {
