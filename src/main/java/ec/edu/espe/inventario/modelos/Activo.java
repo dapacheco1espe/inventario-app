@@ -1,6 +1,9 @@
 package ec.edu.espe.inventario.modelos;
 
 
+import java.math.BigDecimal;
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -51,16 +54,16 @@ public class Activo {
     // private Integer actividad;
     @Column(name = "DESCRIPCION", length = 1000)
     private String descripcion;
-    // @Column(name = "OBSERVACION", length = 1000)
-    // private String observacion;
+    @Column(name = "OBSERVACION", length = 1000)
+    private String observacion;
     // @Column(name = "CANTIDADORIGINAL")
     // private Integer cantidadOriginal;
-    // @Column(name = "CANTIDAD")
-    // private Integer cantidad;
+    @Column(name = "CANTIDAD")
+    private Integer cantidad;
     // @Column(name = "AVALUOTECNICO")
     // private Integer avaluoTecnico;
-    // @Column(name = "VALOR", precision = 38, scale = 10)
-    // private Float valor;
+    @Column(name = "VALOR", precision = 38, scale = 10)
+    private BigDecimal valor;
     // @Column(name = "VALORME", precision = 38, scale = 10)
     // private Float valorMe;
     // @Column(name = "VALORAVALUO", precision = 38, scale = 10)
@@ -77,8 +80,8 @@ public class Activo {
     // private Float porcDepre;
     // @Column(name = "PORCDEPREMENSUAL", precision = 38, scale = 10)
     // private Float porcDepreMensual;
-    // @Column(name = "FECHAADQUISICION")
-    // private Date fechaAdquisicion;
+    @Column(name = "FECHAADQUISICION")
+    private Date fechaAdquisicion;
     // @Column(name = "FECHAAPLICACION")
     // private Date fechaAplicacion;
     // @Column(name = "ESTADOCONS")
@@ -141,10 +144,10 @@ public class Activo {
     // private Integer tipoComodato;
     // @Column(name = "NPROPIETARIO", length = 15)
     // private String nPropietario;
-    // @Column(name = "CUSTODIO1", length = 15)
-    // private String custodio1;
-    // @Column(name = "CUSTORIO2", length = 15)
-    // private String custodio2;
+    @Column(name = "CUSTODIO1", length = 15)
+    private String custodio1;
+    @Column(name = "CUSTODIO2", length = 15)
+    private String custodio2;
     // @Column(name = "UNIONOPERATIVA")
     // private Integer unionOperativa;
     // @Column(name = "SUCURSAL")
@@ -207,8 +210,8 @@ public class Activo {
     // private String estado;
     // @Column(name = "ASEGURADO")
     // private Integer asegurado;
-    // @Column(name = "USUARIO", length = 50)
-    // private String usuario;
+    @Column(name = "USUARIO", length = 50)
+    private String usuario;
     // @Column(name = "FECHACRE")
     // private Date fechaCre;
     // @Column(name = "USUARIOM", length = 50)
@@ -309,10 +312,10 @@ public class Activo {
     // private Integer olvidadoCi;
     // @Column(name = "NACTALEV")
     // private Integer nActaLev;
-    // @Column(name = "MEF", length = 700)
-    // private String mef;
-    // @Column(name = "CODMEF", length = 150)
-    // private String codMef;
+    @Column(name = "MEF", length = 700)
+    private String mef;
+    @Column(name = "CODMEF", length = 150)
+    private String codMef;
     // @Column(name = "PARTIDAMEF", length = 150)
     // private String partidaMef;
     // @Column(name = "CUENTAMEF", length = 150)
@@ -473,36 +476,36 @@ public class Activo {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    // public String getObservacion() {
-    //     return observacion;
-    // }
-    // public void setObservacion(String observacion) {
-    //     this.observacion = observacion;
-    // }
+    public String getObservacion() {
+        return observacion;
+    }
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
+    }
     // public Integer getCantidadOriginal() {
     //     return cantidadOriginal;
     // }
     // public void setCantidadOriginal(Integer cantidadOriginal) {
     //     this.cantidadOriginal = cantidadOriginal;
     // }
-    // public Integer getCantidad() {
-    //     return cantidad;
-    // }
-    // public void setCantidad(Integer cantidad) {
-    //     this.cantidad = cantidad;
-    // }
+    public Integer getCantidad() {
+        return cantidad;
+    }
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
     // public Integer getAvaluoTecnico() {
     //     return avaluoTecnico;
     // }
     // public void setAvaluoTecnico(Integer avaluoTecnico) {
     //     this.avaluoTecnico = avaluoTecnico;
     // }
-    // public Float getValor() {
-    //     return valor;
-    // }
-    // public void setValor(Float valor) {
-    //     this.valor = valor;
-    // }
+    public BigDecimal getValor() {
+        return valor;
+    }
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
     // public Float getValorMe() {
     //     return valorMe;
     // }
@@ -551,12 +554,12 @@ public class Activo {
     // public void setPorcDepreMensual(Float porcDepreMensual) {
     //     this.porcDepreMensual = porcDepreMensual;
     // }
-    // public Date getFechaAdquisicion() {
-    //     return fechaAdquisicion;
-    // }
-    // public void setFechaAdquisicion(Date fechaAdquisicion) {
-    //     this.fechaAdquisicion = fechaAdquisicion;
-    // }
+    public Date getFechaAdquisicion() {
+        return fechaAdquisicion;
+    }
+    public void setFechaAdquisicion(Date fechaAdquisicion) {
+        this.fechaAdquisicion = fechaAdquisicion;
+    }
     // public Date getFechaAplicacion() {
     //     return fechaAplicacion;
     // }
@@ -743,18 +746,18 @@ public class Activo {
     // public void setnPropietario(String nPropietario) {
     //     this.nPropietario = nPropietario;
     // }
-    // public String getCustodio1() {
-    //     return custodio1;
-    // }
-    // public void setCustodio1(String custodio1) {
-    //     this.custodio1 = custodio1;
-    // }
-    // public String getCustodio2() {
-    //     return custodio2;
-    // }
-    // public void setCustodio2(String custodio2) {
-    //     this.custodio2 = custodio2;
-    // }
+    public String getCustodio1() {
+        return custodio1;
+    }
+    public void setCustodio1(String custodio1) {
+        this.custodio1 = custodio1;
+    }
+    public String getCustodio2() {
+        return custodio2;
+    }
+    public void setCustodio2(String custodio2) {
+        this.custodio2 = custodio2;
+    }
     // public Integer getUnionOperativa() {
     //     return unionOperativa;
     // }
@@ -941,12 +944,12 @@ public class Activo {
     // public void setAsegurado(Integer asegurado) {
     //     this.asegurado = asegurado;
     // }
-    // public String getUsuario() {
-    //     return usuario;
-    // }
-    // public void setUsuario(String usuario) {
-    //     this.usuario = usuario;
-    // }
+    public String getUsuario() {
+        return usuario;
+    }
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
     // public Date getFechaCre() {
     //     return fechaCre;
     // }
@@ -1247,18 +1250,18 @@ public class Activo {
     // public void setnActaLev(Integer nActaLev) {
     //     this.nActaLev = nActaLev;
     // }
-    // public String getMef() {
-    //     return mef;
-    // }
-    // public void setMef(String mef) {
-    //     this.mef = mef;
-    // }
-    // public String getCodMef() {
-    //     return codMef;
-    // }
-    // public void setCodMef(String codMef) {
-    //     this.codMef = codMef;
-    // }
+    public String getMef() {
+        return mef;
+    }
+    public void setMef(String mef) {
+        this.mef = mef;
+    }
+    public String getCodMef() {
+        return codMef;
+    }
+    public void setCodMef(String codMef) {
+        this.codMef = codMef;
+    }
     // public String getPartidaMef() {
     //     return partidaMef;
     // }
@@ -1414,58 +1417,15 @@ public class Activo {
             return false;
         return true;
     }
-    // @Override
-    // public String toString() {
-    //     return "Activo [codigo=" + codigo + ", codigoEmpresa=" + codigoEmpresa + ", localidad=" + localidad
-    //             + ", origen=" + origen + ", tipo=" + tipo + ", subtipo=" + subtipo + ", clase=" + clase
-    //             + ", codLocalidad=" + codLocalidad + ", conceptoTransaccion=" + conceptoTransaccion + ", lote=" + lote
-    //             + ", sublote=" + sublote + ", historial=" + historial + ", tipoTransaccion=" + tipoTransaccion
-    //             + ", numeroTransaccion=" + numeroTransaccion + ", fechaTransaccion=" + fechaTransaccion + ", principal="
-    //             + principal + ", sinUso=" + sinUso + ", actividad=" + actividad + ", descripcion=" + descripcion
-    //             + ", observacion=" + observacion + ", cantidadOriginal=" + cantidadOriginal + ", cantidad=" + cantidad
-    //             + ", avaluoTecnico=" + avaluoTecnico + ", valor=" + valor + ", valorMe=" + valorMe + ", valorAvaluo="
-    //             + valorAvaluo + ", valorAvaluoMe=" + valorAvaluoMe + ", deprech=" + deprech + ", deprechMe=" + deprechMe
-    //             + ", vidaUtil=" + vidaUtil + ", porcDepre=" + porcDepre + ", porcDepreMensual=" + porcDepreMensual
-    //             + ", fechaAdquisicion=" + fechaAdquisicion + ", fechaAplicacion=" + fechaAplicacion + ", estadoCons="
-    //             + estadoCons + ", estructuraBien=" + estructuraBien + ", color=" + color + ", dimensiones="
-    //             + dimensiones + ", marca=" + marca + ", modelo=" + modelo + ", nSerie=" + nSerie + ", placa=" + placa
-    //             + ", motor=" + motor + ", chasis=" + chasis + ", claseVehiculo=" + claseVehiculo + ", tipoVehiculo="
-    //             + tipoVehiculo + ", anioFabrica=" + anioFabrica + ", obra=" + obra + ", autor=" + autor + ", tipoObra="
-    //             + tipoObra + ", nombre=" + nombre + ", arete=" + arete + ", fechaNacimiento=" + fechaNacimiento
-    //             + ", raza=" + raza + ", sexo=" + sexo + ", areaCons=" + areaCons + ", valorComercial=" + valorComercial
-    //             + ", infraestructura=" + infraestructura + ", registroPropiedad=" + registroPropiedad + ", linderos="
-    //             + linderos + ", origenCompra=" + origenCompra + ", origenFondo=" + origenFondo + ", tipoComodato="
-    //             + tipoComodato + ", nPropietario=" + nPropietario + ", custodio1=" + custodio1 + ", custodio2="
-    //             + custodio2 + ", unionOperativa=" + unionOperativa + ", sucursal=" + sucursal + ", provincia="
-    //             + provincia + ", canton=" + canton + ", parroquia=" + parroquia + ", direccion=" + direccion + ", area="
-    //             + area + ", seccion=" + seccion + ", subseccion=" + subseccion + ", fechaGarantia=" + fechaGarantia
-    //             + ", depreAnt=" + depreAnt + ", depreAntMe=" + depreAntMe + ", depreActual=" + depreActual
-    //             + ", depreActualMe=" + depreActualMe + ", depreInicial=" + depreInicial + ", depreInicialMe="
-    //             + depreInicialMe + ", depreci=" + depreci + ", depreciMe=" + depreciMe + ", genAsiento=" + genAsiento
-    //             + ", moneda=" + moneda + ", cotizacion=" + cotizacion + ", sinRevisarTf=" + sinRevisarTf
-    //             + ", fechTomaf=" + fechTomaf + ", valorRep=" + valorRep + ", concepto=" + concepto + ", nComponentes="
-    //             + nComponentes + ", transferiDoci=" + transferiDoci + ", foto=" + foto + ", depreciadoTotal="
-    //             + depreciadoTotal + ", estado=" + estado + ", asegurado=" + asegurado + ", usuario=" + usuario
-    //             + ", fechaCre=" + fechaCre + ", usuarioM=" + usuarioM + ", fechaUac=" + fechaUac + ", brecha1="
-    //             + brecha1 + ", permisoBorrado=" + permisoBorrado + ", localidadEgreso=" + localidadEgreso
-    //             + ", localidadIngreso=" + localidadIngreso + ", estuvoSinUso=" + estuvoSinUso + ", conjunto=" + conjunto
-    //             + ", dispositivo=" + dispositivo + ", motivoBaja=" + motivoBaja + ", autorizaBaja=" + autorizaBaja
-    //             + ", detalleBaja=" + detalleBaja + ", aQuien=" + aQuien + ", especifique=" + especifique
-    //             + ", localidadIngresoInt=" + localidadIngresoInt + ", localidadEgresoInt=" + localidadEgresoInt
-    //             + ", ultimaDp=" + ultimaDp + ", poliza=" + poliza + ", enviado=" + enviado + ", tipoTomaF=" + tipoTomaF
-    //             + ", paisFabrica=" + paisFabrica + ", catastro=" + catastro + ", digitaVu=" + digitaVu + ", fechEc="
-    //             + fechEc + ", anioEc=" + anioEc + ", fechaEch=" + fechaEch + ", oEmpresa=" + oEmpresa + ", numEgreso="
-    //             + numEgreso + ", genAsientoco=" + genAsientoco + ", excel=" + excel + ", arcExcel=" + arcExcel
-    //             + ", codigoNuevo=" + codigoNuevo + ", codigoRig=" + codigoRig + ", cambiado=" + cambiado
-    //             + ", NumDevolucion=" + NumDevolucion + ", impreso=" + impreso + ", impresoEtq=" + impresoEtq
-    //             + ", programa=" + programa + ", proyecto=" + proyecto + ", codigoAnt=" + codigoAnt + ", codigoGrupo="
-    //             + codigoGrupo + ", subclase=" + subclase + ", detalleTra=" + detalleTra + ", recuperadoB=" + recuperadoB
-    //             + ", nuevoValor=" + nuevoValor + ", iva=" + iva + ", subtotal=" + subtotal + ", olvidadoCi="
-    //             + olvidadoCi + ", nActaLev=" + nActaLev + ", mef=" + mef + ", codMef=" + codMef + ", partidaMef="
-    //             + partidaMef + ", cuentaMef=" + cuentaMef + ", tProyMef=" + tProyMef + ", itemPresuMef=" + itemPresuMef
-    //             + ", ptoOrigen=" + ptoOrigen + ", porcIva=" + porcIva + ", cSolidaria=" + cSolidaria + ", numRemvaluo="
-    //             + numRemvaluo + ", fechaAplrv=" + fechaAplrv + ", vidaUtilRv=" + vidaUtilRv + ", valorRv=" + valorRv
-    //             + ", valorDepreciarLuegoRv=" + valorDepreciarLuegoRv + ", nuevoCh=" + nuevoCh + ", nuevaDpracum="
-    //             + nuevaDpracum + ", depreAntRv=" + depreAntRv + ", depreActRv=" + depreActRv + "]";
-    // }
+    @Override
+    public String toString() {
+        return "Activo [codigo=" + codigo + ", codigoEmpresa=" + codigoEmpresa + ", localidad=" + localidad
+                + ", origen=" + origen + ", tipo=" + tipo + ", subtipo=" + subtipo + ", clase=" + clase
+                + ", codLocalidad=" + codLocalidad + ", conceptoTransaccion=" + conceptoTransaccion + ", lote=" + lote
+                + ", sublote=" + sublote + ", descripcion=" + descripcion + ", observacion=" + observacion
+                + ", cantidad=" + cantidad + ", valor=" + valor + ", fechaAdquisicion=" + fechaAdquisicion
+                + ", custodio1=" + custodio1 + ", custodio2=" + custodio2 + ", usuario=" + usuario + ", mef=" + mef
+                + ", codMef=" + codMef + "]";
+    }
+   
 }
