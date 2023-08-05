@@ -15,7 +15,7 @@ import ec.edu.espe.inventario.controller.dto.ActivoRfidRQ;
 import ec.edu.espe.inventario.modelos.ActivoRfid;
 import ec.edu.espe.inventario.service.ActivoRfidService;
 
-@CrossOrigin(origins = "http://localhost:8100",maxAge = 3600, allowCredentials = "true")
+@CrossOrigin(origins= {"*"}, maxAge = 4800, allowCredentials = "false" )
 @RestController
 @RequestMapping("/api/v1/activosRfid")
 public class ActivoRfidController {
