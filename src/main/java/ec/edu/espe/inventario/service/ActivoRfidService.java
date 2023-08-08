@@ -1,11 +1,13 @@
 package ec.edu.espe.inventario.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import ec.edu.espe.inventario.controller.dto.ActivoRfidRQ;
+import ec.edu.espe.inventario.controller.dto.ActivoRfidRS;
 import ec.edu.espe.inventario.modelos.ActivoRfid;
 import ec.edu.espe.inventario.repository.ActivoRfidRepository;
 
@@ -17,8 +19,13 @@ public class ActivoRfidService {
         this.activoRfidRepository = activoRfidRepository;
     }
 
-    public List<ActivoRfid> listarActivosRfid(){
-        return this.activoRfidRepository.findAll();
+    public List<ActivoRfidRS> listarActivosRfid(){
+        List<ActivoRfid> activos = this.activoRfidRepository.findAll();
+        List<ActivoRfidRS> activosRS = new ArrayList<ActivoRfidRS>();
+        for(ActivoRfid act : activos){
+            activosRS.add(this.transformRS(act));
+        }
+        return activosRS;
     }
 
     public List<ActivoRfid> obtenerActivoRfidByCustodio1(ActivoRfidRQ activoRfidRQ){
@@ -76,6 +83,18 @@ public class ActivoRfidService {
         return activoRfid;
     }
 
+    private ActivoRfidRS transformRS(ActivoRfid activo){
+        ActivoRfidRS activoRfidRS = new ActivoRfidRS();
+        activoRfidRS.setCodigo(activo.getCodigo());
+        activoRfidRS.setCodigoRfid(activo.getCodigoRfid());
+        activoRfidRS.setCustodio1(activo.getCustodio1());
+        activoRfidRS.setCustodio2(activo.getCustodio2());
+        activoRfidRS.setDescripcion(activo.getDescripcion());
+        activoRfidRS.setEstadoJustificado(activo.getEstadoJustificado());
+        activoRfidRS.setEstadoTransaccion(activo.getEstadoTransaccion());
+        activoRfidRS.setUsuario(activo.getUsuario());
+        return activoRfidRS;
+    }
     // String subirFile(MultipartFile file, ActivoRfid activo){
 
     // }
