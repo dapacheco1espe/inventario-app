@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ec.edu.espe.inventario.controller.dto.ActivoRfidRQ;
 import ec.edu.espe.inventario.controller.dto.ActivoRfidRS;
+import ec.edu.espe.inventario.controller.dto.ActivosRfidList;
 import ec.edu.espe.inventario.modelos.ActivoRfid;
 import ec.edu.espe.inventario.service.ActivoRfidService;
 
@@ -58,8 +59,8 @@ public class ActivoRfidController {
     }
 
     @PostMapping("/agregar")
-    public ResponseEntity<ActivoRfid> agregarActivoRfid(@RequestBody ActivoRfidRQ activoRQ) {
-        ActivoRfid activoRfids = this.activoRfidService.agregarActivoRfid(activoRQ);
+    public ResponseEntity<List<ActivoRfidRS>> agregarActivoRfid(@RequestBody ActivosRfidList activosRQ) {
+        List<ActivoRfidRS> activoRfids = this.activoRfidService.agregarActivoRfid(activosRQ);
         return ResponseEntity.ok(activoRfids);
     }
 

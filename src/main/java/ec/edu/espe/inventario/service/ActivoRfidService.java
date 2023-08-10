@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import ec.edu.espe.inventario.controller.dto.ActivoRfidRQ;
 import ec.edu.espe.inventario.controller.dto.ActivoRfidRS;
+import ec.edu.espe.inventario.controller.dto.ActivosRfidList;
 import ec.edu.espe.inventario.modelos.ActivoRfid;
 import ec.edu.espe.inventario.repository.ActivoRfidRepository;
 
@@ -48,10 +49,16 @@ public class ActivoRfidService {
         return this.activoRfidRepository.findByCodigoRfid(activoRfid.getCodigoRfid());
     }
 
-    public ActivoRfid agregarActivoRfid(ActivoRfidRQ activorRfidRQ){
-        ActivoRfid activoRfid = this.transformRQ(activorRfidRQ);
-        return this.activoRfidRepository.save(activoRfid);
+    public List<ActivoRfidRS> agregarActivoRfid(ActivosRfidList activosRfidRQ){
+        List<ActivoRfidRS> savedActivos = new ArrayList<ActivoRfidRS>();
+        for(ActivoRfidRQ activo : activosRfidRQ.getListaActivosRfid()){
+            ActivoRfid activoRfid = this.transformRQ(activo);
+            this.activoRfidRepository.save(activoRfid);
+            savedActivos.add(this.transformRS(activoRfid));
+        }
+        return savedActivos;
     }
+    
 
     public ActivoRfid editarActivoRfid(ActivoRfidRQ activorRfidRQ){
         ActivoRfid activoRfid = this.transformRQ(activorRfidRQ);
