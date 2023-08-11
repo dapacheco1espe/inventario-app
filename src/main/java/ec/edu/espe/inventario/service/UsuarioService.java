@@ -17,7 +17,7 @@ public class UsuarioService {
 
     public UsuarioRS signIn(UsuarioRQ usuariorq){
         Usuario tmpUser = this.transformUsuarioRQToUsuario(usuariorq);
-        Usuario user = this.usuarioRepository.findByLogin(tmpUser.getLogin());
+        Usuario user = this.usuarioRepository.findByLoginAndPasswd(tmpUser.getLogin(), tmpUser.getPasswd());
         if(user != null){
             return this.transformUsuarioToUsuarioRS(user);
         }else{
